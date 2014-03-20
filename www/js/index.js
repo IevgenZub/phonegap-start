@@ -18,8 +18,15 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
+        var TestModel = Backbone.Model.extend({});
+        var testModel = new TestModel();
+        testModel.set({ someValue: "Hello from Backbone on native mobile app! :)" });
+
         this.bindEvents();
+
+        var backboneElement = document.getElementById("backboneElement");
+        backboneElement.innerHTML =  "<p>" + testModel.get("someValue") + "</p>" 
     },
     // Bind Event Listeners
     //
